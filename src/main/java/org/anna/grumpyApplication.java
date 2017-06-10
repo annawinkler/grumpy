@@ -1,8 +1,10 @@
 package org.anna;
 
 import io.dropwizard.Application;
+import io.dropwizard.jersey.setup.JerseyEnvironment;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import org.anna.resources.GrumpyResource;
 
 public class grumpyApplication extends Application<grumpyConfiguration> {
 
@@ -17,13 +19,18 @@ public class grumpyApplication extends Application<grumpyConfiguration> {
 
     @Override
     public void initialize(final Bootstrap<grumpyConfiguration> bootstrap) {
-        // TODO: application initialization
+
     }
 
     @Override
     public void run(final grumpyConfiguration configuration,
                     final Environment environment) {
-        // TODO: implement application
+        registerJerseyResources(configuration, environment);
     }
 
+    private void registerJerseyResources(final grumpyConfiguration configuration, final Environment environment) {
+        final GrumpyResource grumpyResource = new GrumpyResource();
+        JerseyEnvironment jersey = environment.jersey();
+        jersey.register(grumpyResource);
+    }
 }
