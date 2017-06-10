@@ -1,5 +1,10 @@
 # grumpy
 
+This is a Java 8 Dropwizard application I created to test out a few different things in Dropwizard.
+
+Currently, the application has one endpoint (/gp) that returns a random 5XX HTTP status code 
+and a random fun grumpy cat quote.
+
 How to start the grumpy application
 ---
 
@@ -14,4 +19,4 @@ To see your applications health enter url `http://localhost:8081/healthcheck`
 
 References
 ---
-Banner generated via this site http://patorjk.com/software/taag.
+Banner generated via this site: http://patorjk.com/software/taag
